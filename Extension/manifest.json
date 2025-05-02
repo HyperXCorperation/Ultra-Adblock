@@ -41,7 +41,8 @@
       "rule_resources": [
         {
           "id": "ruleset_1",
-          "path": "rules.json"
+          "path": "rules.json",
+          "enabled": true
         }
       ],
       "max_rulesets": 10,
