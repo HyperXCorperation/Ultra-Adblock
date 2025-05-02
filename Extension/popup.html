@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultra Adblock</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #222;
+            color: #eee;
+            padding: 20px;
+            width: 280px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            color: #4fc3f7;
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-size: 2em;
+            text-align: center;
+        }
+
+        .control-panel {
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #333;
+            border-radius: 8px;
+        }
+
+        .toggle-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .toggle-label {
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 46px;
+            height: 24px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 2px;
+            bottom: 2px;
+            background-color: #fff;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #00bcd4;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #00bcd4;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(22px);
+        }
+
+        .stats-container {
+            padding: 15px;
+            background-color: #333;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stats-title {
+            font-size: 1.1em;
+            color: #eee;
+            margin-bottom: 10px;
+        }
+
+        .stats-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #00bcd4;
+        }
+
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.8em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ultra Adblock</h1>
+    <div class="control-panel">
+        <div class="toggle-container">
+            <span class="toggle-label">Ad Blocking:</span>
+            <label class="switch">
+                <input type="checkbox" id="toggleAdblock">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+    <div class="stats-container">
+        <div class="stats-title">Ads Blocked (Current Session)</div>
+        <div class="stats-value" id="adsBlockedCount">0</div>
+    </div>
+    <div class="footer">Powered by Ultra Adblock</div>
+    <script src="popup.js"></script>
+</body>
+</html>

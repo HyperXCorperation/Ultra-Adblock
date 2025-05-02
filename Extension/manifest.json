@@ -1,0 +1,50 @@
+{
+    "manifest_version": 3,
+    "name": "Ultra Adblock",
+    "version": "0.1.0",
+    "description": "The ultimate ad blocking solution.",
+    "permissions": [
+      "declarativeNetRequest",
+      "storage"
+    ],
+    "host_permissions": [
+      "<all_urls>"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": [
+          "<all_urls>"
+        ],
+        "js": [
+          "content.js"
+        ],
+        "run_at": "document_start"
+      }
+    ],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "images/icon16.png",
+        "48": "images/icon48.png",
+        "128": "images/icon128.png"
+      }
+    },
+    "icons": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    },
+    "declarative_net_request": {
+      "rule_resources": [
+        {
+          "id": "ruleset_1",
+          "path": "rules.json"
+        }
+      ],
+      "max_rulesets": 10,
+      "max_rules_per_ruleset": 5000
+    }
+  }
